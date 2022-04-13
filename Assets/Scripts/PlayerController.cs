@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal" + this.name);
         verticalInput = Input.GetAxis("Vertical" + this.name);
-        Debug.Log(horizontalInput);
+        // Debug.Log(horizontalInput);
         GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalInput, verticalInput) * speed;
     }
 
