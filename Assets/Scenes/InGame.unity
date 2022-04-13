@@ -1724,7 +1724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6f9926a1fe882428c68956de221179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 500
+  smoothTime: 0.3
+  maxSpeed: 700
 --- !u!114 &625651799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3171,6 +3172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patient
       objectReference: {fileID: 0}
+    - target: {fileID: 5730917743461653756, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
+      propertyPath: m_TagString
+      value: IgnoredByFlashlight
+      objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.b
       value: 0.012459981
@@ -3698,6 +3703,10 @@ PrefabInstance:
     - target: {fileID: 5730917743461653756, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Name
       value: Doctor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730917743461653756, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
+      propertyPath: m_TagString
+      value: IgnoredByFlashlight
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.b
