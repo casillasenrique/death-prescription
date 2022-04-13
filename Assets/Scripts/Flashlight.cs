@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Light2DE = UnityEngine.Experimental.Rendering.Universal.Light2D;
 public class Flashlight : MonoBehaviour
 {
     public GameObject doctor;
@@ -10,9 +10,17 @@ public class Flashlight : MonoBehaviour
 
     private Vector2 currentVelocity;
 
+    private Color initialColor;
+
+    Collider2D collider;
+
     // Start is called before the first frame update
     void Start()
     {
+        var light = this.GetComponent<Light2DE>();
+        collider = this.GetComponent<Collider2D>();
+        initialColor = light.color;
+
         GameObject[] objs = GameObject.FindGameObjectsWithTag("IgnoredByFlashlight");
 
         foreach (GameObject obj in objs)
@@ -25,6 +33,8 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
         Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D>();
+        var light = this.GetComponent<Light2DE>();
+
 
         // Adapted from http://answers.unity.com/answers/15638/view.html
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -73,12 +83,18 @@ public class Flashlight : MonoBehaviour
         if (flashlightInLineOfSight)
         {
             // Move the flashlight to the mouse position with smoothing
-            // Adapted from https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
+            // Adapted from
+            // https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
+            collider.enabled = true;
+            light.color = initialColor;
             rigidbody.MovePosition(movementVector);
             return;
         }
 
-        stopMoving();
+        rigidbody.MovePosition(movementVector);
+        light.color -= (Color.white / 0.05f) * Time.deltaTime;
+        // rigidbody.MovePosition(mousePosition);
+        collider.enabled = false;
     }
 
     void moveTowards(Vector2 target)
