@@ -24,51 +24,82 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D>();
+
+        // Adapted from http://answers.unity.com/answers/15638/view.html
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 movementVector = Vector2.SmoothDamp(
+                        transform.position,
+                        mousePosition,
+                        ref currentVelocity,
+                        smoothTime,
+                        maxSpeed
+                    );
+
+
+        // Vector3 futurePosition = this.transform.position + new Vector3(movementVector.x, movementVector.y, 0);
+
+        // Make sure the flashlight is in the line of sight of the doctor
+        var mouseRayDirection = doctor.transform.position - new Vector3(mousePosition.x, mousePosition.y, 0);
+        var flashlightRayDirection = doctor.transform.position - new Vector3(movementVector.x, movementVector.y, 0);
+        RaycastHit2D mouseRaycast = Physics2D.Raycast(mousePosition, mouseRayDirection);
+        RaycastHit2D flashlightRaycast = Physics2D.Raycast(movementVector, flashlightRayDirection);
+
+        if (flashlightRaycast.collider == null)
+        {
+            return;
+        }
+
+        bool flashlightInLineOfSight = false;
+        Color mouseRayColor = Color.white;
+        Color flashlightRayColor = Color.white;
+
+        if (mouseRaycast.collider.name == "Doctor")
+        {
+            mouseRayColor = Color.yellow;
+        }
+
+        if (flashlightRaycast.collider.name == "Doctor")
+        {
+            flashlightInLineOfSight = true;
+            flashlightRayColor = Color.yellow;
+        }
+
+        Debug.DrawRay(mousePosition, mouseRayDirection, mouseRayColor, Time.deltaTime);
+        Debug.DrawRay(movementVector, flashlightRayDirection, flashlightRayColor, Time.deltaTime);
+
+
+
+        if (flashlightInLineOfSight)
+        {
+            // Move the flashlight to the mouse position with smoothing
+            // Adapted from https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
+            rigidbody.MovePosition(movementVector);
+            return;
+        }
+
+        stopMoving();
+    }
+
+    void moveTowards(Vector2 target)
+    {
         // Get the rigid body
         Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D>();
 
-        // Make sure the flashlight is in the line of sight of the doctor
-        // Adapted from http://answers.unity.com/answers/15638/view.html
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var rayDirection = doctor.transform.position - new Vector3(mousePosition.x, mousePosition.y, 0);
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, rayDirection);
+        Vector2 movementVector = Vector2.SmoothDamp(
+                        transform.position,
+                        target,
+                        ref currentVelocity,
+                        smoothTime,
+                        maxSpeed
+                    );
 
-        if (hit.collider != null)
-        {
-            float distance = Vector2.Distance(hit.point, mousePosition);
+        rigidbody.MovePosition(movementVector);
+    }
 
-            if (hit.collider.name == "Doctor")
-            {
-                Debug.Log("Did Hit");
-                Debug.DrawRay(mousePosition, rayDirection, Color.yellow, Time.deltaTime);
-                // Move the flashlight to the mouse position with smoothing
-
-                // Adapted from https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
-                Vector2 movementVector = Vector2.SmoothDamp(
-                    transform.position,
-                    mousePosition,
-                    ref currentVelocity,
-                    smoothTime,
-                    maxSpeed
-                );
-
-                rigidbody.MovePosition(movementVector);
-            }
-            else
-            {
-                Debug.Log("Did not Hit");
-                Debug.DrawRay(mousePosition, rayDirection, Color.white, Time.deltaTime);
-                rigidbody.velocity = Vector2.zero;
-            }
-        }
-        else
-        {
-            // there is something obstructing the view
-            Debug.DrawRay(mousePosition, rayDirection * 1000, Color.white, Time.deltaTime);
-            Debug.Log("Did not Hit");
-        }
-
-
-
+    void stopMoving()
+    {
+        Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D>();
+        rigidbody.velocity = Vector2.zero;
     }
 }
