@@ -27,4 +27,14 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalInput, verticalInput) * speed;
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Collision occurred");
+        if (col.gameObject.name == "Doctor" || col.gameObject.name == "Patient")
+        {
+            Debug.Log("Doctor hit patient (or vice versa)");
+
+        }
+    }
+
 }
