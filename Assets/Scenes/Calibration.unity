@@ -690,11 +690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.b
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.g
-      value: 0.13636363
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.r
@@ -1107,7 +1107,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 985166501}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1876159959}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: ChangeMaterial
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: doctor brighter
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &985166501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1298615975}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1876159959}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: ChangeMaterial
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: doctor darker
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1298615975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,7 +1448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1534988222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 566119232}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: ChangeMaterial
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: patient darker
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1534988222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.b
-      value: 0.04037261
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.g
@@ -1764,7 +1800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730917743461653757, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
       propertyPath: m_Color.r
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c4e80b447e347a3977e2ae11ec95d0, type: 3}
@@ -1905,16 +1941,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566119231}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 566119232}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: ChangeMaterial
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: patient brighter
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2092228180
