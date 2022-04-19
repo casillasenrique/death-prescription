@@ -12,8 +12,6 @@ public class ChangeColor : MonoBehaviour
     {
         patientColor = new Color(1f,0f,0.04f);
         doctorColor = new Color(0,0.14f,1f);
-        // patientColor = new Color(1, 0, 0);
-        // doctorColor = new Color(0, 0, 1);
 
 
     }
@@ -23,19 +21,7 @@ public class ChangeColor : MonoBehaviour
         string player = playerModifierArray[0];
         string modifier = playerModifierArray[1];
         Color colorToChange = player == "doctor"? doctorColor: patientColor;
-
-        // if (modifier == "brighter")
-        // {
-        //     colorToChange.r += (255f-colorToChange.a)*.25f ;
-        //     colorToChange.g += (255f-colorToChange.b)*.25f ;
-        //     colorToChange.b += (255f-colorToChange.g)*.25f ;
-        // }
-        // else
-        // {
-        //     colorToChange.r *= .75f;
-        //     colorToChange.g *=.75f;
-        //     colorToChange.b *=.75f;
-        // }
+        
 
         Color filter = modifier == "brighter" ? new Color(1,1,1): new Color(0, 0, 0);
         float alpha = .15f;
