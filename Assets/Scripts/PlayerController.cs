@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.name == "Doctor" || col.gameObject.name == "Patient")
         {
             Debug.Log("Doctor hit patient (or vice versa)");
-
+            SceneManager.LoadScene("GameEnd");
         }
     }
 
