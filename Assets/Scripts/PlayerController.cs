@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.name == "Doctor" || col.gameObject.name == "Patient")
         {
             Debug.Log("Doctor hit patient (or vice versa)");
-            SceneManager.LoadScene("GameEnd");
+            SceneManager.LoadScene("DoctorWin");
         }
     }
 
