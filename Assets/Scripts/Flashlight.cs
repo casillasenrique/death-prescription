@@ -31,13 +31,14 @@ public class Flashlight : MonoBehaviour
         // Adapted from
         // https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 movementVector = Vector2.SmoothDamp(
-                        transform.position,
-                        mousePosition,
-                        ref currentVelocity,
-                        smoothTime,
-                        maxSpeed
-                    );
+        var movementVector = mousePosition;
+        // Vector2 movementVector = Vector2.SmoothDamp(
+        //                 transform.position,
+        //                 mousePosition,
+        //                 ref currentVelocity,
+        //                 smoothTime,
+        //                 maxSpeed
+        //             );
 
         // Make sure the flashlight is in the line of sight of the doctor using
         // a raycast from the flashlight position to the doctor position
