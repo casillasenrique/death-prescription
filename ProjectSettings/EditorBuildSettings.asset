@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InGame.unity
     guid: b0cb18e19c43b433f9c44a47a4083d53
   - enabled: 1
-    path: Assets/Scenes/GameEnd.unity
+    path: Assets/Scenes/DoctorWin.unity
     guid: bc759be2d23b9488a9b02f881a0cb27e
+  - enabled: 1
+    path: Assets/Scenes/PatientWin.unity
+    guid: bda012657bc744af68d0fd7f721631b7
   m_configObjects: {}
