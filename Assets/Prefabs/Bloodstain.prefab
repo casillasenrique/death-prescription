@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1932793274058139477}
   - component: {fileID: 8596741180154301073}
-  m_Layer: 0
+  - component: {fileID: -6879091027768353412}
+  m_Layer: 6
   m_Name: Bloodstain
-  m_TagString: Untagged
+  m_TagString: IgnoredByFlashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 9106460111527923862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 944.28357, y: 481.02197, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 15, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +83,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6879091027768353412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106460111527923862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54eee703035b49dc9c2a8d17299bcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
