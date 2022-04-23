@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+
+    private Animator animator;
     private float horizontalInput;
     private float verticalInput;
+
+    private Vector2 lastMovement;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        lastMovement = Vector2.zero;
     }
 
     // Update is called once per frame
@@ -22,10 +28,23 @@ public class PlayerController : MonoBehaviour
         //     return;
         // }
 
-        horizontalInput = Input.GetAxis("Horizontal" + this.name);
-        verticalInput = Input.GetAxis("Vertical" + this.name);
+        horizontalInput = Input.GetAxisRaw("Horizontal" + this.name);
+        verticalInput = Input.GetAxisRaw("Vertical" + this.name);
         // Debug.Log(horizontalInput);
         GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalInput, verticalInput) * speed;
+
+        // Animation
+        animator.SetFloat("MovementX", horizontalInput);
+        animator.SetFloat("MovementY", verticalInput);
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            animator.SetFloat("lastMovementX", horizontalInput);
+            animator.SetFloat("lastMovementY", verticalInput);
+        }
+
+
+        // lastMovement = new Vector2(horizontalInput, verticalInput);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -37,5 +56,4 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("DoctorWin");
         }
     }
-
 }
