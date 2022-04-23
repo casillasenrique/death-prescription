@@ -11,13 +11,10 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    private Vector2 lastMovement;
-
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        lastMovement = Vector2.zero;
     }
 
     // Update is called once per frame
@@ -42,9 +39,6 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("lastMovementX", horizontalInput);
             animator.SetFloat("lastMovementY", verticalInput);
         }
-
-
-        // lastMovement = new Vector2(horizontalInput, verticalInput);
     }
 
     void OnCollisionEnter2D(Collision2D col)
