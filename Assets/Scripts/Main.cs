@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
 {
     
     public GameObject exit;
+    public Boolean generatorActive = false;
 
     private List<int> xPos = new List<int>() {751, 184, 1159, 1532, 1774, 1163, 1456, 1772, 1772, 1399, 1301};
     private List<int> yPos = new List<int>() {834, 924, 622, 622, 622, 404, 407, 407, 140, 140, 140}; 

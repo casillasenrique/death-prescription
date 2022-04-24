@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Exit : MonoBehaviour
+public class Generator : MonoBehaviour
 {
     
     Main mainRef;
@@ -18,17 +17,18 @@ public class Exit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Something collided with the exit");
 
-        if (col.gameObject.name == "Patient" && mainRef.generatorActive)
+        if (col.gameObject.name == "Patient")
         {
-            Debug.Log("Player escaped!");
-            SceneManager.LoadScene("PatientWin");
+            mainRef.generatorActive = true;
+            Debug.Log("Patient activated generator!");
+            // TODO: add light flash
         }
     }
 }
