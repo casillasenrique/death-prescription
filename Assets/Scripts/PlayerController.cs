@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal" + this.name);
         verticalInput = Input.GetAxisRaw("Vertical" + this.name);
         // Debug.Log(horizontalInput);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalInput, verticalInput) * speed;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
 
         // Animation
         animator.SetFloat("MovementX", horizontalInput);
