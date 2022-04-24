@@ -12,7 +12,6 @@ public class Exit : MonoBehaviour
     void Start()
     {
         mainRef = GameObject.Find("Main Camera").GetComponent<Main>();
-        Debug.Log("Found Main script");
     }
 
     // Update is called once per frame

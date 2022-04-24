@@ -22,8 +22,9 @@ public class Generator : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Something collided with the exit");
-
+        
+        Debug.Log("generator collision");
+        
         if (col.gameObject.name == "Patient")
         {
             mainRef.generatorActive = true;

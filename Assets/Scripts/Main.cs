@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
 {
     
     public GameObject exit;
+    public GameObject generator;
     public Boolean generatorActive = false;
 
     private List<int> xPos = new List<int>() {751, 184, 1159, 1532, 1774, 1163, 1456, 1772, 1772, 1399, 1301};
@@ -20,14 +21,29 @@ public class Main : MonoBehaviour
         Random rnd = new Random();
         int num = rnd.Next(0, xPos.Count);
         int num2 = num;
+        int num3 = num;
+        int num4 = num;
         while (num == num2)
         {
             num2 = rnd.Next(0, xPos.Count);
         }
         
+        while (num == num3 || num2 == num3)
+        {
+            num3 = rnd.Next(0, xPos.Count);
+        }
+        
+        while (num == num4 || num2 == num4 || num3 == num4)
+        {
+            num4 = rnd.Next(0, xPos.Count);
+        }
+        
         // Add the exits to the game
         Instantiate(exit, new Vector3(xPos[num], yPos[num], 0), Quaternion.identity);
         Instantiate(exit, new Vector3(xPos[num2], yPos[num2], 0), Quaternion.identity);
+        Instantiate(generator, new Vector3(xPos[num3], yPos[num3], 0), Quaternion.identity);
+        Instantiate(generator, new Vector3(xPos[num4], yPos[num4], 0), Quaternion.identity);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
