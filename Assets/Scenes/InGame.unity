@@ -369,9 +369,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 81540615
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.8978205, g: 0.9529412, b: 0.113725476, a: 1}
+  m_Color: {r: 0.86936027, g: 0.9245283, b: 0.047970813, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5434,6 +5434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1365380324}
   - component: {fileID: 1365380323}
+  - component: {fileID: 1365380325}
   m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -5507,6 +5508,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1365380325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365380322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07321c9e7c1f4c4591947d299c73d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loaded: 0
 --- !u!1 &1371089879
 GameObject:
   m_ObjectHideFlags: 0
