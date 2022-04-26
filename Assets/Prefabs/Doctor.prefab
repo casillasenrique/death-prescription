@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2284e88d495b431c8f2b33721cfaeacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myObject: {fileID: 1337764562340147451}
   player: doctor
 --- !u!1 &6708391586446375923
 GameObject:
@@ -197,7 +196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6708391586446375924
 Transform:
   m_ObjectHideFlags: 0
@@ -240,7 +239,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 200
+  m_PointLightOuterRadius: 15
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
