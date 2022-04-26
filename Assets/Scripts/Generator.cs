@@ -9,7 +9,7 @@ public class Generator : MonoBehaviour
     Main mainRef;
     Progress progressRef;
     public GameObject patient;
-    public double maxDistance = 50;
+    public double maxDistance = 35;
 
     
     // Start is called before the first frame update
@@ -26,11 +26,11 @@ public class Generator : MonoBehaviour
     {
 
         double distance = Vector3.Distance(patient.transform.position, transform.position);
-        Debug.Log(distance);
-        if (distance < maxDistance)
+        //Debug.Log(distance);
+        if (distance < maxDistance && progressRef.loaded < 1)
         {
-            progressRef.loaded += 0.005f;
-            Debug.Log(progressRef.loaded);
+            progressRef.loaded += 0.003f;
+            //Debug.Log(progressRef.loaded);
             if (progressRef.loaded >= 1)
             {
                 mainRef.generatorActive = true;
