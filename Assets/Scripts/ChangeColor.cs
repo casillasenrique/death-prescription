@@ -1,12 +1,13 @@
 
 using System;
 using UnityEngine;
+using Light2DE = UnityEngine.Experimental.Rendering.Universal.Light2D;
 using UnityEngine.UI;
 public class ChangeColor : MonoBehaviour
 {
     public static Color patientColor;
     public static Color doctorColor;
-    [SerializeField] private Renderer myObject;
+    public GameObject myObject;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class ChangeColor : MonoBehaviour
     }
     public void ChangeMaterial (string playerModifier)
     {
+        
         string[] playerModifierArray  = playerModifier.Split(' ');
         string player = playerModifierArray[0];
         string modifier = playerModifierArray[1];
@@ -28,19 +30,27 @@ public class ChangeColor : MonoBehaviour
         colorToChange.r += (filter.r - colorToChange.r) * alpha;
         colorToChange.g += (filter.g - colorToChange.g) * alpha;
         colorToChange.b += (filter.b - colorToChange.b) * alpha;
-        
-        
+
+
         Debug.Log(colorToChange);
         if (player == "doctor")
         {
+            colorToChange.r = Math.Min(colorToChange.r,0);
+            colorToChange.g = Math.Min(colorToChange.g, 0.14f);
+            colorToChange.b = Math.Min(colorToChange.b, 1f);
             doctorColor = colorToChange;
-            myObject.material.color = doctorColor;
+            // myObject.material.color = doctorColor;
         }
         else
         {
+            colorToChange.r = Math.Min(colorToChange.r,1);
+            colorToChange.g = Math.Min(colorToChange.g, 0);
+            colorToChange.b = Math.Min(colorToChange.b, .04f);
             patientColor = colorToChange;
-            myObject.material.color = patientColor;
+            // myObject.material.color = patientColor;
         }
+        var light = myObject.GetComponent<Light2DE>();
+        light.color = colorToChange;
 
     }
     
