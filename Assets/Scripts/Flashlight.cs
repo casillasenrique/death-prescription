@@ -67,7 +67,7 @@ public class Flashlight : MonoBehaviour
         if (flashlightInLineOfSight)
         {
             // Move the flashlight to the mouse position with smoothing
-            light.color = initialColor;
+            light.intensity = 1;
             rigidbody.MovePosition(movementVector);
             return;
         }
@@ -75,6 +75,6 @@ public class Flashlight : MonoBehaviour
         // IF the flashlight is not in line of sight with the doctor, turn off
         // the light
         rigidbody.MovePosition(movementVector);
-        light.color -= (Color.white / 0.05f) * Time.deltaTime;
+        light.intensity = 0;
     }
 }
