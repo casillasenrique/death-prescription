@@ -9,7 +9,7 @@ public class Generator : MonoBehaviour
     Main mainRef;
     Progress progressRef;
     public GameObject patient;
-    public double maxDistance = 35;
+    private double maxDistance = 20;
 
     
     // Start is called before the first frame update
