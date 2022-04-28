@@ -2056,6 +2056,14 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.14117648
       objectReference: {fileID: 0}
+    - target: {fileID: 6708391586446375925, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 208.2731
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708391586446375925, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 208.2731
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6708391586295721021, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
