@@ -275,8 +275,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -332}
-  m_SizeDelta: {x: 432.9188, y: 123.7667}
+  m_AnchoredPosition: {x: -5.4984, y: -212}
+  m_SizeDelta: {x: 261.6882, y: 74.8138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131190084
 MonoBehaviour:
@@ -318,7 +318,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 131190085}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -695,8 +695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 474.8841, y: 199.6953}
+  m_AnchoredPosition: {x: -5.4984, y: 54}
+  m_SizeDelta: {x: 327.0888, y: 137.5454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548804086
 MonoBehaviour:
