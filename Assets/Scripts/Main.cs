@@ -14,6 +14,11 @@ public class Main : MonoBehaviour
     public GameObject patient;
     public GameObject doctor;
 
+    Progress progressRef;
+    private GameObject generator1;
+    private GameObject generator2;
+
+    
     private List<int> exXPos = new List<int>() {0, -560, 560, 0};
     private List<int> exYPos = new List<int>() {-483, -30, -30, 464};
 
@@ -31,6 +36,7 @@ public class Main : MonoBehaviour
 
 
     private double maxDistance = 200;
+    private double maxGeneratorDistance = 30;
 
     private bool backgroundSoundSwitched = false;
     private bool heartbeatIsNormal = true;
@@ -58,9 +64,13 @@ public class Main : MonoBehaviour
         // Add the exits to the game
         Instantiate(exit, new Vector3(exXPos[ex1], exYPos[ex1], 0), Quaternion.identity);
         Instantiate(exit, new Vector3(exXPos[ex2], exYPos[ex2], 0), Quaternion.identity);
-        Instantiate(generator, new Vector3(genXPos[gen1], genYPos[gen1], 0), Quaternion.identity);
-        Instantiate(generator, new Vector3(genXPos[gen2], genYPos[gen2], 0), Quaternion.identity);
         //DontDestroyOnLoad(this.gameObject);
+        
+        //Generator:
+        progressRef = GameObject.Find("ProgressBar").GetComponent<Progress>();
+        generator1 = Instantiate(generator, new Vector3(genXPos[gen1], genYPos[gen1], 0), Quaternion.identity);
+        generator2 = Instantiate(generator, new Vector3(genXPos[gen2], genYPos[gen2], 0), Quaternion.identity);
+        
 
         //Music To Game
         bgmAudioSource = gameObject.AddComponent<AudioSource>();
@@ -117,7 +127,23 @@ public class Main : MonoBehaviour
             heartbeatSource.Play();
         }
 
-
+        //Generator closeness
+        double distanceGenerator1 = Vector3.Distance(patient.transform.position, generator1.transform.position);
+        double distanceGenerator2 = Vector3.Distance(patient.transform.position, generator2.transform.position);
+        bool isWithinDistance = distanceGenerator1 < maxGeneratorDistance || distanceGenerator2 < maxGeneratorDistance;
+        
+        if (isWithinDistance && progressRef.loaded < 1)
+        {
+            generatorTurningOn = true;
+            if (progressRef.loaded >= 1)
+            {
+                generatorTurningOn = false;
+            }
+        } else
+        {
+            generatorTurningOn = false;
+        }
+        
         //Generator sounds
         if (generatorTurningOn && !generatorAudioSource.isPlaying)
         {

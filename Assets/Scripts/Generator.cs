@@ -36,11 +36,11 @@ public class Generator : MonoBehaviour
             progressRef.loaded += 0.002f;
             // Debug.Log(progressRef.loaded);
             // Debug.Log("generator Turning on");
-            mainRef.generatorTurningOn = true;
+            // mainRef.generatorTurningOn = true;
             if (progressRef.loaded >= 1)
             {
                 mainRef.generatorActive = true;
-                mainRef.generatorTurningOn = false;
+                // mainRef.generatorTurningOn = false;
                 animator.SetTrigger("GeneratorStarted");
                 Debug.Log("Patient activated generator!");
                 // TODO: add light flash
@@ -54,7 +54,7 @@ public class Generator : MonoBehaviour
                 animator.SetBool("GeneratorStarting", false);
             }
 
-            mainRef.generatorTurningOn = false;
+            // mainRef.generatorTurningOn = false;
         }
 
         
