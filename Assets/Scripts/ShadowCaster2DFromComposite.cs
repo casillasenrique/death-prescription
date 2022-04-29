@@ -40,7 +40,7 @@ public class ShadowCaster2DFromComposite : MonoBehaviour
     /// <summary>
     /// Rebuilds ShadowCaster2Ds for all ShadowCaster2DFromComposite in scene
     /// </summary>
-    [MenuItem("2DLights/Rebuild Tilemap")]
+    // [MenuItem("2DLights/Rebuild Tilemap")]
     public static void RebuildAll()
     {
         foreach (var item in FindObjectsOfType<ShadowCaster2DFromComposite>())
@@ -49,22 +49,22 @@ public class ShadowCaster2DFromComposite : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        _tilemap = GetComponent<Tilemap>();
-        Tilemap.tilemapTileChanged += this.RebuildOnTilePlacement;
-    }
+    // private void OnEnable()
+    // {
+    //     _tilemap = GetComponent<Tilemap>();
+    //     Tilemap.tilemapTileChanged += this.RebuildOnTilePlacement;
+    // }
 
-    private void OnDisable()
-    {
-        Tilemap.tilemapTileChanged -= this.RebuildOnTilePlacement;
-    }
+    // private void OnDisable()
+    // {
+    //     Tilemap.tilemapTileChanged -= this.RebuildOnTilePlacement;
+    // }
 
-    private void RebuildOnTilePlacement(Tilemap arg1, Tilemap.SyncTile[] arg2)
-    {
-        if (arg1 == _tilemap)
-            Rebuild();
-    }
+    // private void RebuildOnTilePlacement(Tilemap arg1, Tilemap.SyncTile[] arg2)
+    // {
+    //     if (arg1 == _tilemap)
+    //         Rebuild();
+    // }
 
     private void Start()
     {
