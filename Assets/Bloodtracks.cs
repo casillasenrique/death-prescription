@@ -20,7 +20,7 @@ public class Bloodtracks : MonoBehaviour
     {
         timer -= Time.deltaTime;
         if(timer < 0){
-          Instantiate(bloodAsset, gameObject.transform.position, gameObject.transform.rotation);
+          Instantiate(bloodAsset, gameObject.transform.position, gameObject.transform.rotation * Quaternion.Euler(0, 0, -90));
           timer = dripFreq;
         }
     }
