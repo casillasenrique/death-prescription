@@ -33,7 +33,7 @@ public class Generator : MonoBehaviour
         if (distance < maxDistance && progressRef.loaded < 1)
         {
             animator.SetBool("GeneratorStarting", true);
-            progressRef.loaded += 0.003f;
+            progressRef.loaded += 0.002f;
             // Debug.Log(progressRef.loaded);
             // Debug.Log("generator Turning on");
             mainRef.generatorTurningOn = true;
