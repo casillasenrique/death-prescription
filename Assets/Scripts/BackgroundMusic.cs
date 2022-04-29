@@ -13,7 +13,7 @@ public class BackgroundMusic : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
         audioSource.clip = audioClip;
-        audioSource.volume = 1;
+        audioSource.volume = .1f;
         audioSource.Play();
     }
 }
