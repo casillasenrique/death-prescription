@@ -11,13 +11,15 @@ public class Generator : MonoBehaviour
     public GameObject patient;
     private double maxDistance = 20;
 
-    
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         patient = GameObject.Find("Patient");
         mainRef = GameObject.Find("Main Camera").GetComponent<Main>();
         progressRef = GameObject.Find("ProgressBar").GetComponent<Progress>();
+        animator = GetComponent<Animator>();
         //Debug.Log("Found Main script");
     }
 
@@ -27,8 +29,10 @@ public class Generator : MonoBehaviour
 
         double distance = Vector3.Distance(patient.transform.position, transform.position);
         //Debug.Log(distance);
+        // Player is close to the generator
         if (distance < maxDistance && progressRef.loaded < 1)
         {
+            animator.SetBool("GeneratorStarting", true);
             progressRef.loaded += 0.003f;
             // Debug.Log(progressRef.loaded);
             // Debug.Log("generator Turning on");
@@ -37,12 +41,19 @@ public class Generator : MonoBehaviour
             {
                 mainRef.generatorActive = true;
                 mainRef.generatorTurningOn = false;
+                animator.SetTrigger("GeneratorStarted");
                 Debug.Log("Patient activated generator!");
                 // TODO: add light flash
             }
         }
         else
         {
+            // If the player stepped away but the progress is not done, play the
+            // closing animation
+            if (progressRef.loaded < 1) {
+                animator.SetBool("GeneratorStarting", false);
+            }
+
             mainRef.generatorTurningOn = false;
         }
 
