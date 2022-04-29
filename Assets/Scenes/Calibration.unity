@@ -1448,11 +1448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337764562340147451, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_Color.g
-      value: 0.13536787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1337764562340147451, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6708391586295721016, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_Enabled
@@ -1476,11 +1476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6708391586446375925, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 208.2731
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6708391586446375925, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 208.2731
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6708391586446375925, guid: 652e2ee979112724da7c4a789ceda392, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -1533,11 +1533,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ec61aa8de5fdedc4ea2de7b6d456e599, type: 3}
     - target: {fileID: 1518869706690420047, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518869706690420047, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518869706690420047, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
       propertyPath: m_Color.r
@@ -1630,6 +1630,14 @@ PrefabInstance:
     - target: {fileID: 6529186614201658905, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529186614201658905, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529186614201658905, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6529186613487249217, guid: a1089270fb7577c43aa1fe4d5081194c, type: 3}

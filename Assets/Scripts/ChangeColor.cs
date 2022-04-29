@@ -38,6 +38,11 @@ public class ChangeColor : MonoBehaviour
             colorToChange.r = Math.Min(colorToChange.r,0);
             colorToChange.g = Math.Min(colorToChange.g, 0.14f);
             colorToChange.b = Math.Min(colorToChange.b, 1f);
+            
+            colorToChange.r = Math.Max(colorToChange.r,0);
+            colorToChange.g = Math.Max(colorToChange.g, .073f);
+            colorToChange.b = Math.Max(colorToChange.b, .522f);
+            
             doctorColor = colorToChange;
             // myObject.material.color = doctorColor;
         }
@@ -46,6 +51,10 @@ public class ChangeColor : MonoBehaviour
             colorToChange.r = Math.Min(colorToChange.r,1);
             colorToChange.g = Math.Min(colorToChange.g, 0);
             colorToChange.b = Math.Min(colorToChange.b, .04f);
+            
+            colorToChange.r = Math.Max(colorToChange.r,.324f);
+            colorToChange.g = Math.Max(colorToChange.g, 0);
+            colorToChange.b = Math.Max(colorToChange.b, .034f);
             patientColor = colorToChange;
             // myObject.material.color = patientColor;
         }
