@@ -9,7 +9,7 @@ public class Generator : MonoBehaviour
     Main mainRef;
     Progress progressRef;
     public GameObject patient;
-    private double maxDistance = 20;
+    public double maxDistance = 30;
 
     private Animator animator;
 
