@@ -30,15 +30,23 @@ public class Generator : MonoBehaviour
         if (distance < maxDistance && progressRef.loaded < 1)
         {
             progressRef.loaded += 0.003f;
-            //Debug.Log(progressRef.loaded);
+            // Debug.Log(progressRef.loaded);
+            // Debug.Log("generator Turning on");
+            mainRef.generatorTurningOn = true;
             if (progressRef.loaded >= 1)
             {
                 mainRef.generatorActive = true;
+                mainRef.generatorTurningOn = false;
                 Debug.Log("Patient activated generator!");
                 // TODO: add light flash
             }
-            
         }
+        else
+        {
+            mainRef.generatorTurningOn = false;
+        }
+
+        
 
     }
     

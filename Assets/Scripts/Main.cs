@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 public class Main : MonoBehaviour
@@ -9,6 +10,7 @@ public class Main : MonoBehaviour
     
     public GameObject exit;
     public GameObject generator;
+    public Boolean generatorTurningOn = false;
     public Boolean generatorActive = false;
 
     private List<int> exXPos = new List<int>() {0, -560, 560, 0};
@@ -16,6 +18,14 @@ public class Main : MonoBehaviour
     
     private List<int> genXPos = new List<int>() {0, 0, -70, 330, 330, -380};
     private List<int> genYPos = new List<int>() {-115, -310, 250, 235, -110, -95}; 
+    
+    public AudioSource bgmAudioSource;
+    public AudioSource generatorAudioSource;
+    public AudioClip backgroundMusicNormal;
+    public AudioClip backgroundMusicGeneratorOn;
+    public AudioClip generatorSound;
+    
+    private bool backgroundSoundSwitched = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +52,46 @@ public class Main : MonoBehaviour
         Instantiate(generator, new Vector3(genXPos[gen1], genYPos[gen1], 0), Quaternion.identity);
         Instantiate(generator, new Vector3(genXPos[gen2], genYPos[gen2], 0), Quaternion.identity);
         //DontDestroyOnLoad(this.gameObject);
+        
+        //Music To Game
+        bgmAudioSource = gameObject.AddComponent<AudioSource>();
+        bgmAudioSource.loop = true;
+        bgmAudioSource.clip = backgroundMusicNormal;
+        bgmAudioSource.volume = 1;
+        bgmAudioSource.Play();
+        
+        generatorAudioSource = gameObject.AddComponent<AudioSource>();
+        generatorAudioSource.loop = true;
+        generatorAudioSource.clip = generatorSound;
+        generatorAudioSource.volume = 1;
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (generatorActive && !backgroundSoundSwitched)
+        {
+            Debug.Log("BGM SOUNDDDDD");
+            bgmAudioSource.Stop();
+            generatorAudioSource.Stop();
+            bgmAudioSource.clip = backgroundMusicGeneratorOn;
+            bgmAudioSource.Play();
+            backgroundSoundSwitched = true;
+        }
+        
+        //Generator sounds
+        if (generatorTurningOn && !generatorAudioSource.isPlaying)
+        {
+            Debug.Log("generator turning on");
+            generatorAudioSource.Play();
+        }
+        else if (!generatorTurningOn)
+        {
+            generatorAudioSource.Pause();
+        }
+        
     }
 }
