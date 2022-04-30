@@ -25,33 +25,38 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Compute a smooth damping movement vector that gives the next position
+        // of the flashlight. Flashlight follows the mouse position.
+        // Adapted from
+        // https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var movementVector = mousePosition;
+        // Vector2 movementVector = Vector2.SmoothDamp(
+        //                 transform.position,
+        //                 mousePosition,
+        //                 ref currentVelocity,
+        //                 smoothTime,
+        //                 maxSpeed
+        //             );
+
+        // Make sure the flashlight is in the line of sight of the doctor using
+        // a raycast from the flashlight position to the doctor position
+        // Adapted from http://answers.unity.com/answers/15638/view.html
+        var flashlightRayDirection = doctor.transform.position - new Vector3(movementVector.x, movementVector.y, 0);
+        //RaycastHit2D flashlightRaycast = Physics2D.Raycast(movementVector, flashlightRayDirection);
+        RaycastHit2D flashlightRaycast = Physics2D.Raycast(doctor.transform.position, -flashlightRayDirection);
+
+        //Debug.Log("name:" + flashlightRaycast.collider.name);
+        Debug.Log("light pos: " + flashlightRaycast.point);
+        Debug.DrawRay(movementVector, flashlightRayDirection, Color.yellow, Time.deltaTime);
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            lightOn = !lightOn;
+        }
         if (lightOn)
         {
-            // Compute a smooth damping movement vector that gives the next position
-            // of the flashlight. Flashlight follows the mouse position.
-            // Adapted from
-            // https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var movementVector = mousePosition;
-            // Vector2 movementVector = Vector2.SmoothDamp(
-            //                 transform.position,
-            //                 mousePosition,
-            //                 ref currentVelocity,
-            //                 smoothTime,
-            //                 maxSpeed
-            //             );
-
-            // Make sure the flashlight is in the line of sight of the doctor using
-            // a raycast from the flashlight position to the doctor position
-            // Adapted from http://answers.unity.com/answers/15638/view.html
-            var flashlightRayDirection = doctor.transform.position - new Vector3(movementVector.x, movementVector.y, 0);
-            //RaycastHit2D flashlightRaycast = Physics2D.Raycast(movementVector, flashlightRayDirection);
-            RaycastHit2D flashlightRaycast = Physics2D.Raycast(doctor.transform.position, -flashlightRayDirection);
-
-            //Debug.Log("name:" + flashlightRaycast.collider.name);
-            Debug.Log("light pos: " + flashlightRaycast.point);
             
-            Debug.DrawRay(movementVector, flashlightRayDirection, Color.yellow, Time.deltaTime);
             light.intensity = 1;
             Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
                                  Vector3.Distance(doctor.transform.position, mousePosition)
@@ -59,7 +64,7 @@ public class Flashlight : MonoBehaviour
             GetComponent<Rigidbody2D>().MovePosition(flashPoint);
             return;
         }
-        //light.intensity = 0;
+        light.intensity = 0;
 
 
 
