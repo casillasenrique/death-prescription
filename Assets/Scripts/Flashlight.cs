@@ -49,19 +49,17 @@ public class Flashlight : MonoBehaviour
         //Debug.Log("name:" + flashlightRaycast.collider.name);
         Debug.Log("light pos: " + flashlightRaycast.point);
         Debug.DrawRay(movementVector, flashlightRayDirection, Color.yellow, Time.deltaTime);
-        
+        Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
+                             Vector3.Distance(doctor.transform.position, mousePosition)
+            ? mousePosition : flashlightRaycast.point - 1 * movementVector.normalized;
+        GetComponent<Rigidbody2D>().MovePosition(flashPoint);
         if (Input.GetMouseButtonDown(0))
         {
             lightOn = !lightOn;
         }
         if (lightOn)
         {
-            
             light.intensity = 1;
-            Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
-                                 Vector3.Distance(doctor.transform.position, mousePosition)
-                ? mousePosition : flashlightRaycast.point - 1 * movementVector.normalized;
-            GetComponent<Rigidbody2D>().MovePosition(flashPoint);
             return;
         }
         light.intensity = 0;
