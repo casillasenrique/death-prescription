@@ -14,12 +14,21 @@ public class Flashlight : MonoBehaviour
     private Color initialColor;
 
     private Light2DE light;
+    
+    public int lengthOfLineRenderer = 2;
+    private LineRenderer lineRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         light = this.GetComponent<Light2DE>();
         initialColor = light.color;
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.widthMultiplier = 0.5f;
+        lineRenderer.positionCount = lengthOfLineRenderer;
+        lineRenderer.startColor = ChangeColor.doctorColor;
+        lineRenderer.endColor = ChangeColor.doctorColor;
     }
 
     // Update is called once per frame
@@ -47,11 +56,12 @@ public class Flashlight : MonoBehaviour
         RaycastHit2D flashlightRaycast = Physics2D.Raycast(doctor.transform.position, -flashlightRayDirection);
 
         //Debug.Log("name:" + flashlightRaycast.collider.name);
-        Debug.Log("light pos: " + flashlightRaycast.point);
         Debug.DrawRay(movementVector, flashlightRayDirection, Color.yellow, Time.deltaTime);
         Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
                              Vector3.Distance(doctor.transform.position, mousePosition)
             ? mousePosition : flashlightRaycast.point - 1 * movementVector.normalized;
+        Debug.Log("flashPoint: " + flashPoint);
+        
         GetComponent<Rigidbody2D>().MovePosition(flashPoint);
         if (Input.GetMouseButtonDown(0))
         {
@@ -59,9 +69,13 @@ public class Flashlight : MonoBehaviour
         }
         if (lightOn)
         {
+            lineRenderer.SetPosition(0, doctor.transform.position);
+            lineRenderer.SetPosition(1, doctor.transform.position);
             light.intensity = 1;
             return;
         }
+        lineRenderer.SetPosition(0, doctor.transform.position);
+        lineRenderer.SetPosition(1, flashPoint);
         light.intensity = 0;
 
 
