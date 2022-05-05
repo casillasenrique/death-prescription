@@ -1,4 +1,5 @@
 # Death Prescription
+![Game Logo (Death Prescription)](Assets/Sprites/Title.png)
 
 ## Description
 Two-player asymmetric information horror game made for CMS.611 (Project 3).
