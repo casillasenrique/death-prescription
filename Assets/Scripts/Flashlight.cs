@@ -62,7 +62,7 @@ public class Flashlight : MonoBehaviour
         Vector2 flashPoint = Vector2.Distance(docPos, flashlightRaycast.point) >
                              Vector2.Distance(docPos, mousePosition)
             ? mousePosition : (flashlightRaycast.point + 7 * flashlightRayDirection.normalized);
-        Debug.Log(flashPoint + " " + flashlightRaycast.point);
+        // Debug.Log(flashPoint + " " + flashlightRaycast.point);
         //Debug.Log(flashlightRayDirection.normalized);
         //Debug.Log(Vector2.Distance(docPos, flashlightRaycast.point) >
         //          Vector2.Distance(docPos, mousePosition));
