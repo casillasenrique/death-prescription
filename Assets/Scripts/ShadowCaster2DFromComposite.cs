@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 using UnityEngine.Experimental.Rendering.Universal;
 using System;
 
+// Code created by https://www.youtube.com/watch?v=l8V90A4zKBg&ab_channel=JustAskQuestions
+
 [ExecuteInEditMode]
 [RequireComponent(typeof(CompositeShadowCaster2D))]
 public class ShadowCaster2DFromComposite : MonoBehaviour
