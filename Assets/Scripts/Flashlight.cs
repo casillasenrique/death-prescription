@@ -51,16 +51,21 @@ public class Flashlight : MonoBehaviour
         // Make sure the flashlight is in the line of sight of the doctor using
         // a raycast from the flashlight position to the doctor position
         // Adapted from http://answers.unity.com/answers/15638/view.html
-        var flashlightRayDirection = doctor.transform.position - new Vector3(movementVector.x, movementVector.y, 0);
+        Vector2 docPos = doctor.transform.position;
+        var flashlightRayDirection = docPos - new Vector2(movementVector.x, movementVector.y);
         //RaycastHit2D flashlightRaycast = Physics2D.Raycast(movementVector, flashlightRayDirection);
         RaycastHit2D flashlightRaycast = Physics2D.Raycast(doctor.transform.position, -flashlightRayDirection);
 
         //Debug.Log("name:" + flashlightRaycast.collider.name);
+        //Debug.Log("flashlightRaycast.point:" + flashlightRaycast.point);
         Debug.DrawRay(movementVector, flashlightRayDirection, Color.yellow, Time.deltaTime);
-        Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
-                             Vector3.Distance(doctor.transform.position, mousePosition)
-            ? mousePosition : flashlightRaycast.point - 1 * movementVector.normalized;
-        // Debug.Log("flashPoint: " + flashPoint);
+        Vector2 flashPoint = Vector2.Distance(docPos, flashlightRaycast.point) >
+                             Vector2.Distance(docPos, mousePosition)
+            ? mousePosition : (flashlightRaycast.point + 7 * flashlightRayDirection.normalized);
+        Debug.Log(flashPoint + " " + flashlightRaycast.point);
+        //Debug.Log(flashlightRayDirection.normalized);
+        //Debug.Log(Vector2.Distance(docPos, flashlightRaycast.point) >
+        //          Vector2.Distance(docPos, mousePosition));
         
         GetComponent<Rigidbody2D>().MovePosition(flashPoint);
         if (Input.GetMouseButtonDown(0))
