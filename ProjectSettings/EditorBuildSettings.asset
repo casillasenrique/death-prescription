@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PatientWin.unity
     guid: bda012657bc744af68d0fd7f721631b7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 98747b51ffa2c4f2988bf80c6d163b0b
   m_configObjects: {}
