@@ -60,7 +60,7 @@ public class Flashlight : MonoBehaviour
         Vector3 flashPoint = Vector3.Distance(doctor.transform.position, flashlightRaycast.point) >
                              Vector3.Distance(doctor.transform.position, mousePosition)
             ? mousePosition : flashlightRaycast.point - 1 * movementVector.normalized;
-        Debug.Log("flashPoint: " + flashPoint);
+        // Debug.Log("flashPoint: " + flashPoint);
         
         GetComponent<Rigidbody2D>().MovePosition(flashPoint);
         if (Input.GetMouseButtonDown(0))
